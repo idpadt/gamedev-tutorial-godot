@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/GrassEater.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/space pixel_art.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/fasilkom.png" type="Texture" id=3]
+[ext_resource path="res://scenes/Win area.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 95.5, 47.5 )
+
+[node name="Level 2" type="Node"]
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 510.5, 297.5 )
+scale = Vector2( 1.4125, 1.65833 )
+texture = ExtResource( 2 )
+
+[node name="Win area" type="Area2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Win area"]
+position = Vector2( 737, 175 )
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Win area"]
+position = Vector2( 737, 169 )
+scale = Vector2( 1.25333, 0.583871 )
+texture = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 463.0
+margin_top = 199.0
+margin_right = 771.0
+margin_bottom = 293.0
+text = "DO THE WASD"
+
+[node name="GrassEater" parent="." instance=ExtResource( 1 )]
+position = Vector2( 628, 496 )
